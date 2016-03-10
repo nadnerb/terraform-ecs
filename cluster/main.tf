@@ -9,7 +9,7 @@ resource "aws_ecs_cluster" "default" {
 
 resource "aws_security_group" "ecs" {
   name = "${var.ecs_cluster_name}-ecs-sg"
-  description = "Container Ports"
+  description = "${var.ecs_cluster_name} ECS Container Ports"
   vpc_id = "${var.vpc_id}"
 
   ingress {
@@ -61,8 +61,28 @@ resource "aws_autoscaling_group" "ecs" {
   vpc_zone_identifier  = ["${split(",", var.subnets)}"]
 
   tag {
+    key = "Name"
+    value = "${var.ecs_cluster_name}-ecs-instance"
+    propagate_at_launch = true
+  }
+  tag {
     key = "Stream"
     value = "${var.stream_tag}"
+    propagate_at_launch = true
+  }
+  tag {
+    key = "ServerRole"
+    value = "ECS"
+    propagate_at_launch = true
+  }
+  tag {
+    key = "Cost Center"
+    value = "${var.costcenter_tag}"
+    propagate_at_launch = true
+  }
+  tag {
+    key = "Environment"
+    value = "${var.environment_tag}"
     propagate_at_launch = true
   }
 
@@ -70,3 +90,4 @@ resource "aws_autoscaling_group" "ecs" {
     create_before_destroy = true
   }
 }
+

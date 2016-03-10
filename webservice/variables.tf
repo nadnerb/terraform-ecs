@@ -51,3 +51,32 @@ variable "service_desired_count"{
   description = "desired number indexer service's stack count"
 }
 
+## REQUIRED ##
+variable "public_hosted_zone_id" {
+  description = "Route 53 hosted zone id"
+}
+
+## REQUIRED ##
+variable "public_hosted_zone_name" {
+  description = "Route 53 hosted zone id"
+}
+
+## REQUIRED ##
+variable "vpc_id" {
+}
+
+## REQUIRED ##
+variable "elb_subnets" {
+}
+
+## REQUIRED ##
+variable "availability_zones" {
+}
+
+## REQUIRED ##
+variable "container_name" {
+}
+
+## REQUIRED ##
+variable "container_port" {
+}
