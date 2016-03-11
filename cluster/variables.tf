@@ -61,7 +61,11 @@ variable "subnets" {
   default = ""
 }
 
-variable "internal_cidr_blocks"{
+variable "additional_security_groups" {
+  default = ""
+}
+
+variable "internal_cidr_blocks" {
   default = "0.0.0.0/0"
 }
 
