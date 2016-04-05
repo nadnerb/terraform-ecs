@@ -17,5 +17,9 @@ resource "aws_ecs_task_definition" "default" {
     name = "${var.ecs_service_name}"
     host_path = "/ecs/${var.ecs_service_name}"
   }
+  volume {
+    name = "docker_socket"
+    host_path = "/var/run/docker.sock"
+  }
 }
 
