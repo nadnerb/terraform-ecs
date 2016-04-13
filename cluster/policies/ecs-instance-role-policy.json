@@ -16,6 +16,9 @@
         "ecr:BatchGetImage",
         "ecr:GetDownloadUrlForLayer",
         "ecr:GetAuthorizationToken",
+        "dynamodb:DescribeTable",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
         "kms:Decrypt"
       ],
       "Resource": "*"
