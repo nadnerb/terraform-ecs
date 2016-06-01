@@ -36,10 +36,12 @@ variable "region" {
   default = "ap-southeast-2"
 }
 
-/* ECS optimized AMIs per region */
-//http://stackoverflow.com/questions/34335853/crash-with-nullreferenceexception-using-asp-net-5-on-mono-and-ubuntu-14-04
 # REQUIRED
 variable "ami" {
+}
+
+# REQUIRED
+variable "ecs_iam_profile_id" {
 }
 
 # REQUIRED
